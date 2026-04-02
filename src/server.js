@@ -28,7 +28,7 @@ const checkAdmin = (req, res, next) => {
 /**
  * 2. Public Routes
  */
-// Health Check
+// Health Check (Requirement #5 - Useful for Deployment verification)
 app.get('/', (req, res) => {
     res.send('🚀 Finance Backend is Running smoothly!');
 });
@@ -54,11 +54,14 @@ app.delete('/records/:id', checkAdmin, deleteRecord);
 
 /**
  * 4. Server Initialization
+ * Updated for Render Deployment:
+ * We use process.env.PORT for cloud hosting and '0.0.0.0' to bind to all network interfaces.
  */
-const PORT = 3000;
-app.listen(PORT, () => {
+const PORT = process.env.PORT || 3000; 
+
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`
-    ✅ Server is live at http://localhost:${PORT}
+    ✅ Server is live at port ${PORT}
     ----------------------------------------------
     🚀 Ready for Internship Evaluation!
     ----------------------------------------------
