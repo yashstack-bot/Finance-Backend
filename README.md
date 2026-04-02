@@ -46,7 +46,7 @@ finance_backend/
 
 ---
 
-## 📡 API Endpoints
+# 📡 API Endpoints
 
 ### **User & Analytics (Public)**
 | Method | Endpoint | Description |
